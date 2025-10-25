@@ -56,9 +56,6 @@ data_clean <- data_clean %>%
   )
 
 
-data_clean$female <- ifelse(as.numeric(data_clean$RO3) == 2, 1L, 0L)
-
-
 data_clean <- data_clean %>%
   mutate(
     ln_income = case_when(
