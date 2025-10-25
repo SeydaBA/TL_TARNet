@@ -148,7 +148,7 @@ def compute_CITA(
 
     return tas_plus, tas_minus, cita
 
-# ====================== Example call =========================================
+# Example call:
 tas_p, tas_m, cita_val = compute_CITA(
      model=source_model,
      source_loader=train_loader,
