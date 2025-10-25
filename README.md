@@ -26,7 +26,7 @@ by *Aydin & Brandt*.
   Trains the representation to align source and target treatment/control distributions using an Integral Probability Metric (IPM).
 
 - **Phase 2 – Factual Loss Training** (`Optimize_Loss.py`):  
-  Trains the treatment and control outcome heads on the target dataset while keeping the representation fixed.
+  Trains the treatment and control outcome heads on the target dataset.
 
 ### **Distance Measures**
 - **Distribution Distances** (`Distances/Distance.py`):  
