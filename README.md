@@ -34,12 +34,6 @@ by *Aydin & Brandt*.
 
 ---
 
-## Citation
-
-
-
----
-
 ## Contact
 
 For questions or discussion, feel free to open an issue or contact the authors.
