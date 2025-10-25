@@ -8,7 +8,7 @@ The repository is organized as follows:
 
 *Simulation*: Functions for simulation datasets are under Data_generation/Simulation.R
 
-*Empirical example*: The way of subsetting [IHDS-II dataset]([https://www.google.com](https://ihds.umd.edu/data/ihds-2) is under Data_generation/IHDS.R 
+*Empirical example*: The way of subsetting [IHDS-II dataset](https://ihds.umd.edu/data/ihds-2) is under Data_generation/IHDS.R 
 
 
 
