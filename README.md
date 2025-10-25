@@ -18,7 +18,7 @@ by *Aydin & Brandt*.
 - **Empirical Example** (`Data_generation/IHDS.R`):  
   Prepares and subsets the [IHDS-II household survey dataset](https://ihds.umd.edu/data/ihds-2) for empirical analysis.
 
-### **Model & Training Procedure**
+### ** Functions (Model & Training Procedure)**
 - **TARNet Model** (`TARNet.py`):  
   Defines the shared representation and two potential outcome heads.
 
