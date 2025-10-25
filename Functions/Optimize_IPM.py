@@ -12,7 +12,7 @@ def optimize_ipm_loss(model_representation, optimizer_ipm, train_loader_target, 
             # Compute target embeddings
             phi_target = model_representation(x_)
 
-            # Store embeddings for Phase 2
+            # Store embeddings for factual loss optimization
             phi_target_dict[idx] = (phi_target.clone().detach(), a.clone().detach(), y.clone().detach())
 
             # Compute IPM loss
@@ -23,10 +23,9 @@ def optimize_ipm_loss(model_representation, optimizer_ipm, train_loader_target, 
                 phi_target_treatment_tensor, phi_target_control_tensor,IPM,
                 device
             )
-
-            # Optimize IPM loss
+            
             ipm_loss.backward()
-            torch.nn.utils.clip_grad_norm_(model_representation.parameters(), max_norm=1.0)  # Gradient clipping
+            torch.nn.utils.clip_grad_norm_(model_representation.parameters(), max_norm=1.0) 
             optimizer_ipm.step()
 
             total_ipm_loss += ipm_loss.item() * x_.size(0)
