@@ -7,6 +7,48 @@ def IPM(phi_control, phi_treated):
     wasserstein_distance = wass(phi_control, phi_treated)
     return wasserstein_distance
 
+def IPM_distance(
+    phi_source_treatment,    # fixed (detached) source embeddings for A=1
+    phi_source_control,      # fixed (detached) source embeddings for A=0
+    phi_target_treatment,    # current batch target embeddings for A=1
+    phi_target_control,      # current batch target embeddings for A=0
+    IPM,
+    device
+):
+    # Ensure fixed source side stays fixed
+    phi_source_treatment = phi_source_treatment.detach()
+    phi_source_control   = phi_source_control.detach()
+
+    loss = torch.tensor(0.0, device=device)
+    count = 0
+
+    t1 = _safe_ipm_term(IPM, phi_target_treatment, phi_source_treatment, device)
+    if t1.numel() > 0:
+        loss = loss + t1
+        count += 1
+
+    t2 = _safe_ipm_term(IPM, phi_target_control, phi_source_control, device)
+    if t2.numel() > 0:
+        loss = loss + t2
+        count += 1
+
+    # Target–target alignment (only if both groups present in the batch)
+    if (phi_target_control is not None and phi_target_control.numel() > 0) and \
+       (phi_target_treatment is not None and phi_target_treatment.numel() > 0):
+        loss = loss + IPM(phi_target_control, phi_target_treatment)
+        count += 1
+
+    if count == 0:
+        base = (phi_target_treatment if (phi_target_treatment is not None and phi_target_treatment.numel() > 0)
+                else phi_target_control)
+        if base is None or base.numel() == 0:
+            return torch.tensor(0.0, device=device, requires_grad=True)
+        return base.mean() * 0.0
+
+    return loss / count
+
+
+
 def _make_inverted_loader(tensor_dataset, batch_size=32, shuffle=False):
     """
     Takes a TensorDataset(X, a, y) and returns a DataLoader with a' = 1 - a.
