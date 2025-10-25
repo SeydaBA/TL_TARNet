@@ -22,13 +22,12 @@ def optimize_factual_loss(model_prediction, optimizer_factual, train_loader_targ
             factual_loss = 0.0
             control_indices = (a == 0).nonzero(as_tuple=True)[0]
             treatment_indices = (a == 1).nonzero(as_tuple=True)[0]
-
+            # Written with if statement because some minibatches might contain only treated or only control units
             if len(control_indices) > 0:
                 factual_loss += mse_loss(y0_pred[control_indices], y[control_indices])
             if len(treatment_indices) > 0:
                 factual_loss += mse_loss(y1_pred[treatment_indices], y[treatment_indices])
 
-            # Optimize factual loss
             factual_loss.backward()
             optimizer_factual.step()
 
