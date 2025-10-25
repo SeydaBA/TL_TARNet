@@ -109,7 +109,7 @@ def fisher_task_distance(f_ss_flat, f_st_flat, eps=1e-12):
     diff = f_ss_sqrt - f_st_sqrt
     return (1.0 / math.sqrt(2.0)) * torch.linalg.vector_norm(diff, ord=2)
 
-def compute_CITA_noalpha(
+def compute_CITA(
     model,
     source_loader,          # DataLoader over source (X_s, a_s, y_s)
     target_dataset,         # TensorDataset(X_t, a_t, y_t)
@@ -149,7 +149,7 @@ def compute_CITA_noalpha(
     return tas_plus, tas_minus, cita
 
 # ====================== Example call =========================================
-tas_p, tas_m, cita_val = compute_CITA_noalpha(
+tas_p, tas_m, cita_val = compute_CITA(
      model=source_model,
      source_loader=train_loader,
      target_dataset=all_target,
