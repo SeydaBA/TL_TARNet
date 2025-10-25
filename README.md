@@ -13,7 +13,7 @@ by *Aydin & Brandt*.
 
 ### **Data**
 - **Simulation** (`Data_generation/Simulation.R`):  
-  Generates synthetic datasets with controlled causal structures.
+  Generates simulated datasets.
 
 - **Empirical Example** (`Data_generation/IHDS.R`):  
   Prepares and subsets the [IHDS-II household survey dataset](https://ihds.umd.edu/data/ihds-2) for empirical analysis.
