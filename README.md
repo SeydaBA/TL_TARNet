@@ -24,5 +24,5 @@ The repository is organized as follows:
 
 **Distance**
 
-Functions to find the distance between distributions of the datasets are under Distance.
+Functions to find the distance between distributions of the datasets are under Distances/Distance.py.
 
