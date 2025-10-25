@@ -11,10 +11,6 @@ by *Aydin & Brandt*.
 ## Repository Structure
 
 
----
-
-## Key Components
-
 ### **Data**
 - **Simulation** (`Data_generation/Simulation.R`):  
   Generates synthetic datasets with controlled causal structures.
