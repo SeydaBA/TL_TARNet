@@ -5,7 +5,6 @@ This repository contains the code accompanying the paper:
 **“Advantages and Limitations in the Use of Transfer Learning for Individual Treatment Effects in Causal Machine Learning”**  
 by *Aydin & Brandt*.
 
-The project investigates how representation transfer affects causal estimation of individualized treatment effects (ITE), using both simulated datasets and an empirical application.
 
 ---
 
