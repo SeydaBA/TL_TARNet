@@ -21,7 +21,7 @@ from geomloss import SamplesLoss
 
 
 class CFR(nn.Module):
-    def __init__(self, input_dim=5, output_dim=1, hidden_dim=10, classify=False):
+    def __init__(self, input_dim, output_dim, hidden_dim, classify=False):
         '''
         input_dim, output_dim:self-evident;
         hidden_dim: all neural networks in this model are using the same hidden layer dimension for simplicity
@@ -30,7 +30,7 @@ class CFR(nn.Module):
 
         self.classify = classify
 
-        # func0 is used for predicting the outcome if the treatment is notapplied (control group), and func1 for predicting the outcome if the treatment is applied (treatment group).
+        # func0 is used for predicting the outcome for control group, and func1 for predicting the outcome for treatment group.
 
         encoder = [nn.Linear(input_dim, hidden_dim * 2), nn.ReLU(), nn.Linear(hidden_dim * 2, hidden_dim * 2),
                    nn.ReLU(), nn.Linear(hidden_dim * 2, hidden_dim * 2)]
