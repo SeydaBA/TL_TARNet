@@ -1,4 +1,4 @@
-def optimize_ipm_loss(model_representation, optimizer_ipm, train_loader_target, IPM_distance, device, max_epochs_phase_1, phi_source_treatment, phi_source_control):
+def optimize_ipm(model_representation, optimizer_ipm, train_loader_target, IPM_distance, device, max_epochs_phase_1, phi_source_treatment, phi_source_control):
     model_representation.train()
     phi_target_dict = {}
 
