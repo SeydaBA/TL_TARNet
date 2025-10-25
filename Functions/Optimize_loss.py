@@ -1,5 +1,4 @@
-def optimize_factual_loss(model_prediction, optimizer_factual, train_loader_target, device, max_epochs_phase_2, phi_target_dict):
-     # Keep representation fixed
+def optimize_factual_loss(model_prediction, optimizer_factual, train_loader_target, device, max_epochs_phase_2, phi_target_dict): #phi_target_dict comes from optimize_ipm
     model_prediction.train()
 
     for epoch in range(max_epochs_phase_2):
