@@ -1,28 +1,51 @@
-This repository provides codes for the paper titled with "Advantages and limitation in the use of transfer learning for individual treatment effects in causal machine learning" from Aydin & Brandt.
+# Transfer Learning for Individual Treatment Effects
 
-**Repository Structure**
+This repository contains the code accompanying the paper:
 
-The repository is organized as follows:
+**“Advantages and Limitations in the Use of Transfer Learning for Individual Treatment Effects in Causal Machine Learning”**  
+by *Aydin & Brandt*.
 
-**Data**
+The project investigates how representation transfer affects causal estimation of individualized treatment effects (ITE), using both simulated datasets and an empirical application.
 
-*Simulation*: Functions for simulation datasets are under Data_generation/Simulation.R
+---
 
-*Empirical example*: The way of subsetting [IHDS-II dataset](https://ihds.umd.edu/data/ihds-2) is under Data_generation/IHDS.R 
-
-
-
-**Functions**
-
-*TARNet*: The architecture of the model is under TARNet.py
-
-*Optimize_IPM*: Aligning distributions function is under Optimize_IPM.py
-
-*Optimize_Loss*: After aligning distributions, optimizing loss functions is under Optimize_Loss.py
+## Repository Structure
 
 
+---
 
-**Distance**
+## Key Components
 
-Functions to find the distance between distributions of the datasets are under Distances/Distance.py.
+### **Data**
+- **Simulation** (`Data_generation/Simulation.R`):  
+  Generates synthetic datasets with controlled causal structures.
+
+- **Empirical Example** (`Data_generation/IHDS.R`):  
+  Prepares and subsets the [IHDS-II household survey dataset](https://ihds.umd.edu/data/ihds-2) for empirical analysis.
+
+### **Model & Training Procedure**
+- **TARNet Model** (`TARNet.py`):  
+  Defines the shared representation and two potential outcome heads.
+
+- **Phase 1 – Distribution Alignment** (`Optimize_IPM.py`):  
+  Trains the representation to align source and target treatment/control distributions using an Integral Probability Metric (IPM).
+
+- **Phase 2 – Factual Loss Training** (`Optimize_Loss.py`):  
+  Trains the treatment and control outcome heads on the target dataset while keeping the representation fixed.
+
+### **Distance Measures**
+- **Distribution Distances** (`Distances/Distance.py`):  
+  Implements Wasserstein/IPM-based metrics for quantifying dataset distribution differences.
+
+---
+
+## Citation
+
+
+
+---
+
+## Contact
+
+For questions or discussion, feel free to open an issue or contact the authors.
 
