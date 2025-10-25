@@ -2,6 +2,11 @@ import math
 import torch
 from copy import deepcopy
 
+wass = Wassertein_Loss()
+def IPM(phi_control, phi_treated):
+    wasserstein_distance = wass(phi_control, phi_treated)
+    return wasserstein_distance
+
 def _make_inverted_loader(tensor_dataset, batch_size=32, shuffle=False):
     """
     Takes a TensorDataset(X, a, y) and returns a DataLoader with a' = 1 - a.
