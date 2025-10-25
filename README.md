@@ -1,3 +1,6 @@
+This repository provides codes for the paper titled with "Advantages and limitation in the use of transfer learning for individual treatment effects in causal machine learning" from Aydin & Brandt.
+
+
 **Data**
 
 *Simulation*: Functions for simulation datasets are under Data_generation/Simulation.R
