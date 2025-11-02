@@ -33,56 +33,37 @@ by *Aydin & Brandt*.
   Implements Wasserstein/IPM-based metrics for quantifying dataset distribution differences.
 
 ---
-
-+-- TL_TARNet
+TL_TARNet
+|-- Data
+|   |-- Datasets
+|   |   |-- Empirical                 <-- IHDS-II derived target datasets
+|   |   |   |-- biased_subsample.csv
+|   |   |   |-- random_subsample.csv
+|   |   |   |-- punjab.csv
+|   |   |   `-- uttar_pradesh.csv
+|   |   `-- Simulation                <-- Source datasets (various sizes)
+|   |       |-- source_1000.csv
+|   |       |-- source_5000.csv
+|   |       |-- source_10000.csv
+|   |       `-- source_20000.csv
+|   `-- Generation                    <-- Scripts for generating & preprocessing data
 |
-+-- /Data
-|   |
-|   +-- /Datasets
-|   |   |
-|   |   +-- /Empirical            <-- IHDS-II derived target datasets
-|   |   |   |
-|   |   |   +-- biased_subsample.csv
-|   |   |   +-- random_subsample.csv
-|   |   |   +-- punjab.csv
-|   |   |   +-- uttar_pradesh.csv
-|   |   |
-|   |   +-- /Simulation           <-- Source datasets of increasing sample size
-|   |       |
-|   |       +-- source_1000.csv
-|   |       +-- source_5000.csv
-|   |       +-- source_10000.csv
-|   |       +-- source_20000.csv
-|   |
-|   +-- /Generation               <-- Scripts for generating & preprocessing data
+|-- Distances
+|   `-- Distance.py                   <-- Wasserstein / MMD / IPM distances
 |
-+-- /Distances
-|   |
-|   +-- Distance.py               <-- Wasserstein / MMD / IPM distance calculations
+|-- Functions
+|   |-- TARNet.py                     <-- Model (shared rep + outcome heads)
+|   |-- Optimize_IPM.py               <-- Phase 1: representation alignment (IPM)
+|   `-- Optimize_loss.py              <-- Phase 2: factual loss training
 |
-+-- /Functions
-|   |
-|   +-- TARNet.py                 <-- Model architecture (shared rep + outcome heads)
-|   +-- Optimize_IPM.py           <-- Phase 1: Representation alignment via IPM
-|   +-- Optimize_loss.py          <-- Phase 2: Factual loss training on target data
-|
-+-- /Results
-|   |
-|   +-- /simulation               <-- Output metrics & comparisons from simulations
-|   |
-|   +-- /empirical                <-- Output from IHDS experiments
-|   |   |
-|   |   +-- /w_TL                 <-- Results *with* transfer learning
-|   |   |   |
-|   |   |   +-- *.xlsx            <-- Evaluation & estimated treatment effects
-|   |   |
-|   |   +-- /wo_TL                <-- Results *without* transfer learning
-|   |       |
-|   |       +-- *.xlsx
-|   |
-|   +-- /plots                    <-- Visual summaries & diagnostics
-|
-+-- README.md
+`-- Results
+    |-- simulation                    <-- Simulation experiment outputs
+    |-- empirical
+    |   |-- w_TL                      <-- Results with transfer learning
+    |   |   `-- *.xlsx
+    |   `-- wo_TL                     <-- Results without transfer learning
+    |       `-- *.xlsx
+    `-- plots                         <-- Visualizations & diagnostics
 
 
 
