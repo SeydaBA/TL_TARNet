@@ -10,6 +10,35 @@ by *Aydin & Brandt*.
 
 ## Repository Structure
 
+```text
+TL_TARNet
+|-- Data
+|   |-- Datasets
+|   |   |-- Empirical
+|   |   |   |-- biased_subsample.csv
+|   |   |   |-- random_subsample.csv
+|   |   |   |-- punjab.csv
+|   |   |   `-- uttar_pradesh.csv
+|   |   `-- Simulation
+|   |       |-- source_1000.csv
+|   |       |-- source_5000.csv
+|   |       |-- source_10000.csv
+|   |       `-- source_20000.csv
+|   `-- Generation
+|
+|-- Distances
+|   `-- Distance.py
+|
+|-- Functions
+|   |-- TARNet.py
+|   |-- Optimize_IPM.py
+|   `-- Optimize_loss.py
+|
+`-- Results
+    |-- simulation
+    |-- empirical
+    `-- plots
+```
 
 ### **Data**
 - **Simulation** (`Data_generation/Simulation.R`):  
@@ -33,39 +62,6 @@ by *Aydin & Brandt*.
   Implements Wasserstein/IPM-based metrics for quantifying dataset distribution differences.
 
 ---
-TL_TARNet
-|-- Data
-|   |-- Datasets
-|   |   |-- Empirical                 <-- IHDS-II derived target datasets
-|   |   |   |-- biased_subsample.csv
-|   |   |   |-- random_subsample.csv
-|   |   |   |-- punjab.csv
-|   |   |   `-- uttar_pradesh.csv
-|   |   `-- Simulation                <-- Source datasets (various sizes)
-|   |       |-- source_1000.csv
-|   |       |-- source_5000.csv
-|   |       |-- source_10000.csv
-|   |       `-- source_20000.csv
-|   `-- Generation                    <-- Scripts for generating & preprocessing data
-|
-|-- Distances
-|   `-- Distance.py                   <-- Wasserstein / MMD / IPM distances
-|
-|-- Functions
-|   |-- TARNet.py                     <-- Model (shared rep + outcome heads)
-|   |-- Optimize_IPM.py               <-- Phase 1: representation alignment (IPM)
-|   `-- Optimize_loss.py              <-- Phase 2: factual loss training
-|
-`-- Results
-    |-- simulation                    <-- Simulation experiment outputs
-    |-- empirical
-    |   |-- w_TL                      <-- Results with transfer learning
-    |   |   `-- *.xlsx
-    |   `-- wo_TL                     <-- Results without transfer learning
-    |       `-- *.xlsx
-    `-- plots                         <-- Visualizations & diagnostics
-
-
 
 ## Contact
 
